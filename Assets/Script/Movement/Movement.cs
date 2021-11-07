@@ -25,12 +25,13 @@ namespace TestTask.Movement{
 
 
         ///<summary>
-        ///To control the player with the use of arrow key.
+        ///Control the player with the use of arrow key.
         ///</summary>
         private void PlayerMovement()
         {
             float horizontal = Input.GetAxis("Horizontal");
             float vertical = Input.GetAxis("Vertical");
+            //Determine if the player is pressing the WASD or ARROW key
             if(horizontal == 0f && vertical == 0f)
                 return;
                 setAttack = false;

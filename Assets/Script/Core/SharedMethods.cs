@@ -3,6 +3,11 @@ using UnityEngine;
 public class SharedMethods : MonoBehaviour
 {
    public static SharedMethods instance;
+
+   public enum Tags{
+       Enemy,Player
+   }
+   public Tags tags;
     void Awake()
     {
         if(instance !=null)

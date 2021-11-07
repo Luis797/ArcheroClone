@@ -4,10 +4,10 @@ namespace TestTask.Core{
     public class CameraControl : MonoBehaviour
     {
         [SerializeField] Transform player;
-        [SerializeField] float offsetz;
+        [SerializeField] float offsetZ;
 
         private void LateUpdate() {
-            transform.position =new Vector3(transform.position.x,transform.position.y, player.position.z + offsetz);
+            transform.position =new Vector3(transform.position.x,transform.position.y, player.position.z + offsetZ);
         }
 
       
