@@ -5,12 +5,9 @@ namespace TestTask.Core{
     {
         [SerializeField] Transform player;
         [SerializeField] float offsetZ;
-
         private void LateUpdate() {
             transform.position =new Vector3(transform.position.x,transform.position.y, player.position.z + offsetZ);
         }
-
-      
     }
 }
 

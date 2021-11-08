@@ -141,10 +141,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c3c3a065b30c684385a7240744eacd9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 2
   rb: {fileID: 2368575913393538638}
+  damage: 5
+  enemyTag: 0
+  objectTag: 1
+  time: 0.5
   force: 10
-  tags: 0
 --- !u!54 &2368575913393538638
 Rigidbody:
   m_ObjectHideFlags: 0

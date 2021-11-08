@@ -3,19 +3,16 @@ using UnityEngine;
 public class SharedMethods : MonoBehaviour
 {
    public static SharedMethods instance;
-
+   
    public enum Tags{
        Enemy,Player
    }
-   public Tags tags;
     void Awake()
     {
         if(instance !=null)
-        Destroy(this.gameObject);
+            Destroy(this.gameObject);
         instance = this;
     }
-
-
     ///<summary>
     ///Determine the closet gameobject with certain tag from gameobject calling this function.
     ///</summary>
@@ -27,10 +24,11 @@ public class SharedMethods : MonoBehaviour
             float distance = Vector3.Distance(callingObject.position,gameObject.transform.position);
             if(closetDistance>distance)
             {
-                distance = closetDistance;
+                closetDistance = distance;
                 closetObject = gameObject;
             } 
         }
-        return closetObject.transform;
+        return closetObject == null?null: closetObject.transform;
     }
+  
 }

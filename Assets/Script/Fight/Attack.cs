@@ -1,3 +1,5 @@
+using System;
+using DG.Tweening;
 using TestTask.Core;
 using UnityEngine;
 
@@ -8,9 +10,12 @@ namespace TestTask.Fight{
         //Todo:Place this somewhere for more convinent with instantiating and upgrading the weapons.
         [SerializeField] GameObject weapon;
 
+        [SerializeField] SharedMethods.Tags tags;
+
         PlayerBehaviour playerBehaviour;
         float tempTime;
         bool canAttack = false;
+
         private void Start() {
             tempTime = timeBetweenAttacks;
             playerBehaviour = GetComponent<PlayerBehaviour>();
@@ -24,13 +29,24 @@ namespace TestTask.Fight{
         }
 
         private void AttackEnemy(){
+            LookTowardsEnemy();
             tempTime = timeBetweenAttacks;       
-            Instantiate(weapon,transform.position,weapon.transform.rotation);
+            Instantiate(weapon,transform.position,transform.rotation);
         }
 
-        public void SetCanAttack(){
+        private void LookTowardsEnemy()
+        {
+            Transform enemy = SharedMethods.instance.FindClosetObject(transform,tags.ToString());
+            if(enemy==null){
+                canAttack = false;
+              return;
+              }
+            transform.DOLookAt(enemy.position,0.2f);
+        }
+
+        public void SetCanAttack(Transform enemy){
+           LookTowardsEnemy();
             playerBehaviour.ChangeBehaviour(this);
-            if(GameObject.FindGameObjectsWithTag("Enemy").Length!=0)
             canAttack = true;
         }
         public void CancelBehavior()
