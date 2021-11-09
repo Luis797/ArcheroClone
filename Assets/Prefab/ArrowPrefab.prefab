@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2368575913393538638}
+  AfterEffectOnHit: {fileID: 655842147547984728, guid: 77b6139f3b5de2c468af2262a7585d85, type: 3}
   damage: 5
   enemyTag: 0
   objectTag: 1

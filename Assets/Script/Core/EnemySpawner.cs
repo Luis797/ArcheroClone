@@ -26,7 +26,7 @@ namespace TestTask.Core
             for (int i = 0; i < enemyCount; i++)
             {
                 GameObject enemy = enemies[UnityEngine.Random.Range(0, enemies.Count)];
-                Instantiate(enemy, InstantiatePosition(), enemy.transform.rotation);
+                GameHandler.instance.AddEnemy(Instantiate(enemy, InstantiatePosition(), enemy.transform.rotation).transform);
             }
         }
 

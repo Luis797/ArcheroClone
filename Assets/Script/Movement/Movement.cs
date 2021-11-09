@@ -1,6 +1,7 @@
 using DG.Tweening;
 using TestTask.Core;
 using TestTask.Fight;
+using TestTask.Attribute;
 using UnityEngine;
 
 namespace TestTask.Movement
@@ -22,9 +23,8 @@ namespace TestTask.Movement
         Quaternion targetRotation;
 
         protected Transform enemy;
-        public new void Awake()
+        public void Awake()
         {
-            base.Awake();
             behaviour = GetComponent<PlayerBehaviour>();
             attack = GetComponent<Attack>();
         }
@@ -45,7 +45,7 @@ namespace TestTask.Movement
         #region Collision  
         ///<summary>
         ///Checks for collision with walls and prevent player from going through without any gitterness
-        ///</summary>x    
+        ///</summary>  
         protected void CollisionCheck()
         {
             //To store colliders touching the sphere collider
@@ -68,9 +68,12 @@ namespace TestTask.Movement
             }
         }
 
-        protected override void Death()
+        protected override void IsDeath(float hp)
         {
-            //Todo: Implement What to do OnDeath of player.
+            if (hp <= 0)
+            {
+                print("Death");
+            }
         }
         #endregion
     }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TestTask.Core;
 using UnityEngine;
 
 namespace TestTask.Movement
@@ -19,8 +20,7 @@ namespace TestTask.Movement
             else if (!setAttack)
             {
                 setAttack = true;
-                //Todo: Implement better way to identify if enemy exits
-                if (GameObject.FindGameObjectsWithTag("Enemy").Length != 0)
+                if(GameHandler.instance.EnemyExits())
                     attack.SetCanAttack(enemy);
             }
         }

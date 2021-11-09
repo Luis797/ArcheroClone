@@ -12,7 +12,7 @@ namespace TestTask.Fight
         //Todo:Place this somewhere for more convinent with instantiating and upgrading the weapons.
         [SerializeField] GameObject weapon;
 
-        [SerializeField] SharedMethods.Tags tags;
+        [SerializeField] GameHandler.Tags tags;
 
         PlayerBehaviour playerBehaviour;
         float tempTime;
@@ -40,15 +40,19 @@ namespace TestTask.Fight
             Instantiate(weapon, transform.position, transform.rotation);
         }
 
+
+        ///<summary>
+        ///Make the player looks towards the enemy during attack
         private void LookTowardsEnemy()
         {
-            Transform enemy = SharedMethods.instance.FindClosetObject(transform, tags.ToString());
+            Transform enemy = GameHandler.instance.FindClosetEnemy(transform);
             if (enemy == null)
             {
                 canAttack = false;
                 return;
             }
-            transform.DOLookAt(enemy.position, 0.2f);
+            Vector3 position = enemy.position;
+            transform.DOLookAt(position, 0.2f);
         }
 
         public void SetCanAttack(Transform enemy)
