@@ -17,21 +17,24 @@ namespace TestTask.Movement
         //Time to remain stationary before another flight
         float stationaryTime;
         Transform player;
-        protected void Awake()
+        protected new void Awake()
         {
+            base.Awake();
             player = GameObject.FindGameObjectWithTag("Player").transform;
             stationaryTime = Random.Range(1, 10f);
 
         }
         protected override void IsDeath(float hp)
         {
+            //Todo: Determine how to remove the DOTween effects
+            //DOTween.Kill(this.gameObject);
             if (hp <= 0)
             {
-                Instantiate(coins,transform.position,transform.rotation);
                 GameHandler.instance.RemoveEnemy(this.transform);
-                Destroy(this.gameObject);
+                Instantiate(coins,transform.position,transform.rotation);
+                gameObject.SetActive(false);
+                Destroy(this.gameObject,1f);
             }
-            DOTween.Kill(this.gameObject);
         }
 
         private void Update()

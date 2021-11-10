@@ -146,8 +146,8 @@ MonoBehaviour:
   damage: 5
   enemyTag: 0
   objectTag: 1
+  force: 25
   time: 0.5
-  force: 10
 --- !u!54 &2368575913393538638
 Rigidbody:
   m_ObjectHideFlags: 0

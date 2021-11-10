@@ -14,13 +14,13 @@ namespace TestTask.Core
         [Header("These are the transform in game that defines the range within which the enemy can spawn")]
         [SerializeField] Transform lowestPoint, highestPoint;
 
-        private void Awake()
+        
+        ///<summary>
+        ///Instantiate enemy according to level
+        ///</summary>
+        public void SpawnEnemy(int level)
         {
-            SpawnEnemy();
-        }
-
-        private void SpawnEnemy()
-        {
+            ///Todo : The level information should be used to instantiate the enemy
             if (enemies.Count < 1) return;
 
             for (int i = 0; i < enemyCount; i++)

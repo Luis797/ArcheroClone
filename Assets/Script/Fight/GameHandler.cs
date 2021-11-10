@@ -1,23 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace TestTask.Core
 {
     public class GameHandler : MonoBehaviour
     {
         public static GameHandler instance;
+
+        Vector3 playerInitialPosition;
+
+        [SerializeField] Transform player;
+        [SerializeField] Text levelText;
+
+        private int level = 1;
+
+        private List<Transform> enemies = new List<Transform>();
+
+        [SerializeField] EnemySpawner enemySpawner;
+
+        public int Level{
+            get{
+                return level;
+            }
+            set{
+                level = value;
+            }
+        }
         public enum Tags
         {
             Enemy, Player
         }
-        [SerializeField] private List<Transform> enemies;
+
 
          void Awake()
         {
             if (instance != null)
                 Destroy(this.gameObject);
             instance = this;
+            enemySpawner.SpawnEnemy(level);
+            playerInitialPosition = player.position;
         }
 
 
@@ -40,10 +63,6 @@ namespace TestTask.Core
         public void RemoveEnemy(Transform enemy)
         {
             enemies.Remove(enemy);
-            if (enemies.Count == 0)
-            {
-
-            }
         }
 
         ///<summary>
@@ -64,6 +83,12 @@ namespace TestTask.Core
                 }
             }
             return closetObject;
+        }
+
+        public void ResetGame(){
+            enemySpawner.SpawnEnemy(level);
+            player.position = playerInitialPosition;
+            levelText.text = "Level "+ level;
         }
     }
 
