@@ -1,8 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TestTask.Helper;
 namespace TestTask.Core
 {
     public class GameHandler : MonoBehaviour
@@ -12,34 +11,29 @@ namespace TestTask.Core
         Vector3 playerInitialPosition;
 
         [SerializeField] Transform player;
-        [SerializeField] Text levelText;
 
-        private int level = 1;
+        [Header("Level text of top of the UI")]
+        [SerializeField] Text levelText;
+        
+        [Header("Slider that defines XP")]
+        [SerializeField] Slider xpSlider;
+
+        private LevelSystem levelSystem = new LevelSystem();
 
         private List<Transform> enemies = new List<Transform>();
 
+        private int GameLevel;
         [SerializeField] EnemySpawner enemySpawner;
-
-        public int Level{
-            get{
-                return level;
-            }
-            set{
-                level = value;
-            }
-        }
         public enum Tags
         {
             Enemy, Player
         }
-
 
          void Awake()
         {
             if (instance != null)
                 Destroy(this.gameObject);
             instance = this;
-            enemySpawner.SpawnEnemy(level);
             playerInitialPosition = player.position;
         }
 
@@ -86,9 +80,18 @@ namespace TestTask.Core
         }
 
         public void ResetGame(){
-            enemySpawner.SpawnEnemy(level);
+            enemySpawner.SpawnEnemy(GameLevel);
             player.position = playerInitialPosition;
-            levelText.text = "Level "+ level;
+        }
+
+        ///<summary>
+        ///Increase the XP of the player.
+        ///</summary>
+        public void IncreaseXP(int coinCollected){
+           levelSystem.AddXp(coinCollected);
+           xpSlider.value = levelSystem.GetXPNormaized();
+           levelText.text = "Level "+ levelSystem.Level();
+           GameLevel ++;
         }
     }
 

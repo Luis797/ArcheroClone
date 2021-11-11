@@ -12,7 +12,6 @@ namespace TestTask.Movement
 
         [Header("Speed at which player moves.")]
         [SerializeField] float speed;
-
         private void Update()
         {
             if (Input.anyKey)
@@ -20,7 +19,7 @@ namespace TestTask.Movement
             else if (!setAttack)
             {
                 setAttack = true;
-                if(GameHandler.instance.EnemyExits())
+                if (GameHandler.instance.EnemyExits())
                     attack.SetCanAttack(enemy);
             }
         }
@@ -33,15 +32,16 @@ namespace TestTask.Movement
             float vertical = Input.GetAxis("Vertical");
             //Determine if the player is pressing the WASD or ARROW key
             if (horizontal == 0f && vertical == 0f)
+            {
                 return;
+            }
             setAttack = false;
             CollisionCheck();
             behaviour.ChangeBehaviour(this);
             float perFrameTime = Time.deltaTime;
             Vector3 moveDirection = new Vector3(horizontal, 0, vertical);
-            //Move player by speed value every france
+            //Move player by speed value every franme
             transform.position = transform.position + moveDirection * perFrameTime * speed;
-            
             //Look towards the move direction
             transform.rotation = LookAtDirection(animationMesh.rotation, moveDirection);
         }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TestTask.UI;
 
+
 namespace TestTask.Attribute
 {
     public abstract class Attributes : MonoBehaviour
@@ -11,6 +12,8 @@ namespace TestTask.Attribute
         [SerializeField]public float mhp;
 
         [SerializeField] HealthBar healthBar;
+
+        [SerializeField] Animator controller; 
         
         public virtual void Awake() {
             hp = mhp;
@@ -20,6 +23,7 @@ namespace TestTask.Attribute
             hp -= damage;        
             IsDeath(hp);
             healthBar.UpdateHealthBar(hp,mhp);
+            controller.SetTrigger("Damage");
         }
 
         

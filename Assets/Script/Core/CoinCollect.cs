@@ -27,7 +27,6 @@ namespace TestTask.Core{
         ///</summary>
         private void CollectAchievement()
         {
-            GameHandler.instance.Level++;
             Invoke(nameof(CollectCoins),1f);
         }
 
@@ -35,6 +34,8 @@ namespace TestTask.Core{
         ///Collect the coins once all the enemy is dead after certain time.
         ///</summary>
         private void CollectCoins(){
+            GameHandler.instance.IncreaseXP(coinCollection.Count);
+
              foreach(GameObject coin in coinCollection){
                 coin.transform.DOMove(player.position,0.2f);
                 Destroy(coin,0.55f);

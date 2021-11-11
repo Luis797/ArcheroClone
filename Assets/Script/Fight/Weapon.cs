@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace TestTask.Fight
 {
-    public class Weapon : MonoBehaviour
+    public abstract class Weapon : MonoBehaviour
     {
         [SerializeField] protected Rigidbody rb;
 
@@ -16,22 +16,24 @@ namespace TestTask.Fight
 
         [SerializeField] protected GameHandler.Tags enemyTag;
 
-
+       
         [Header("Tag of the gameobject that instantiate this weapon.")]
         [SerializeField] protected GameHandler.Tags objectTag;
-      
+
         public virtual void OnTriggerEnter(Collider other)
         {
-           
+            if (other.CompareTag(objectTag.ToString())) return;
+            ResetRigidBody();
             if (other.CompareTag(enemyTag.ToString()))
             {
                 OnCollision(other.GetComponent<Attributes>());
             }
-        } 
+        }
         private void OnCollision(Attributes attribute)
         {
             attribute.TakeDamage(damage);
-            Instantiate(AfterEffectOnHit,transform.position,transform.rotation); 
+            Instantiate(AfterEffectOnHit, transform.position, transform.rotation);
         }
+        public abstract void ResetRigidBody();
     }
 }

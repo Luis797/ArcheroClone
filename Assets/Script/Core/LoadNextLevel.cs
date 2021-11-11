@@ -10,6 +10,7 @@ namespace TestTask.Core
 
         private void OnTriggerEnter(Collider other) {
             if(other.CompareTag("Player") && doorController.IsDoorOpen ){
+                doorController.CloseDoor();
               GameHandler.instance.ResetGame();          
             }
         }

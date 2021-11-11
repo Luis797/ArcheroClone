@@ -14,6 +14,9 @@ namespace TestTask.Fight
 
         [SerializeField] GameHandler.Tags tags;
 
+
+        [Header("Point of launch of weapon")]
+        [SerializeField] Transform pointOfLaunch;
         PlayerBehaviour playerBehaviour;
         float tempTime;
         bool canAttack = false;
@@ -37,7 +40,7 @@ namespace TestTask.Fight
         {
             LookTowardsEnemy();
             tempTime = timeBetweenAttacks;
-            Instantiate(weapon, transform.position, transform.rotation);
+            Instantiate(weapon, pointOfLaunch.position, pointOfLaunch.rotation);
         }
 
 
@@ -55,6 +58,9 @@ namespace TestTask.Fight
             transform.DOLookAt(position, 0.2f);
         }
 
+        ///<summary>
+        ///let player attack enemy
+        ///</summary>
         public void SetCanAttack(Transform enemy)
         {
             LookTowardsEnemy();
