@@ -6,9 +6,10 @@ using UnityEngine;
 
 namespace TestTask.Movement
 {
-    public class Movement : Attributes, IBehaviour
+    public class Movement : MonoBehaviour, IBehaviour
     {
-
+        //SphereCollider for collision Detection
+        [Header("Sphere Collider of the game object.")]
         [SerializeField] SphereCollider sphereCol;
         //Assign the animation mesh that will consist of character mesh to ma
         [SerializeField] protected Transform animationMesh;
@@ -23,9 +24,8 @@ namespace TestTask.Movement
         Quaternion targetRotation;
 
         protected Transform enemy;
-        public new void Awake()
+        private void Awake()
         {
-            base.Awake();
             behaviour = GetComponent<PlayerBehaviour>();
             attack = GetComponent<Attack>();
         }
@@ -69,13 +69,7 @@ namespace TestTask.Movement
             }
         }
 
-        protected override void IsDeath(float hp)
-        {
-            if (hp <= 0)
-            {
-                print("Death");
-            }
-        }
+
         #endregion
     }
 

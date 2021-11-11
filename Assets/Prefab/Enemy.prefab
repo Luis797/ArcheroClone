@@ -266,7 +266,7 @@ MonoBehaviour:
   mhp: 10
   healthBar: {fileID: 2115932601578905848}
   controller: {fileID: 5655800349058009797}
-  coins: {fileID: 1950871307682000, guid: 01348926c7cbb3347a006c37204131c3, type: 3}
+  coins: {fileID: 1498403948531744, guid: fa2c57d3f28a5e6419393e8bc3eeb32a, type: 3}
 --- !u!114 &2932767422489354343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,7 +283,6 @@ MonoBehaviour:
   AfterEffectOnHit: {fileID: 655842147547984728, guid: 77b6139f3b5de2c468af2262a7585d85, type: 3}
   damage: 12
   enemyTag: 0
-  time: 0
   objectTag: 0
 --- !u!1 &5413852365187274623
 GameObject:

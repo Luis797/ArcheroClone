@@ -1,11 +1,13 @@
 using System;
 using DG.Tweening;
+using TestTask.Attribute;
 using TestTask.Core;
+using TestTask.Helper;
 using UnityEngine;
 
 namespace TestTask.Fight
 {
-    public class Attack : MonoBehaviour, IBehaviour
+    public class Attack : Attributes, IBehaviour
     {
         [SerializeField] float timeBetweenAttacks;
 
@@ -20,6 +22,27 @@ namespace TestTask.Fight
         PlayerBehaviour playerBehaviour;
         float tempTime;
         bool canAttack = false;
+         [SerializeField] RewardSystem rewardSystem;
+
+        PlayerSkill playerSkill;
+
+        public new  void Awake() { 
+            base.Awake();
+            playerSkill = new PlayerSkill();
+            rewardSystem.SetPlayerSkill(playerSkill);
+            playerSkill.OnSkillUnLocked += PlayerSkill_OnSkillUnLocked;
+        }
+
+        // Todo : According to the object choose by player change the player states like weapon health
+        private void PlayerSkill_OnSkillUnLocked(object sender, PlayerSkill.OnSkillUnlock e)
+        {
+            switch(e.skillType){
+                case PlayerSkill.SkillType.headShot:
+                break;
+                case PlayerSkill.SkillType.heal:
+                break;        
+            }
+        }
 
         private void Start()
         {
@@ -70,6 +93,13 @@ namespace TestTask.Fight
         public void CancelBehavior()
         {
             canAttack = false;
+        }
+         protected override void IsDeath(float hp)
+        {
+            if (hp <= 0)
+            {
+                print("Death");
+            }
         }
     }
 }

@@ -36,10 +36,19 @@ namespace TestTask.Movement
             {
                 GameHandler.instance.RemoveEnemy(this.transform);
                 //Instantiate the coin/gems/diamond to the position after enemy death
-                Instantiate(coins, transform.position, transform.rotation);
+                InstantiateSomeCoins();
                 //gameObject.SetActive(false);
                 Destroy(this.gameObject);
             }
+        }
+
+        private void InstantiateSomeCoins()
+
+        {
+            for (int i = 0; i < Random.Range(2, 5); i++)
+                //Randomly instantiate the coins near player
+                Instantiate(coins, transform.position + transform.forward * Random.Range(-1, 1f) 
+                + transform.right * Random.Range(-1, 1f), coins.transform.rotation);
         }
 
         private void Update()

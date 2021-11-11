@@ -8,9 +8,12 @@ namespace TestTask.Helper{
          public LevelSystem(){
              level = 1;
              XPEarned  =0;
-             XPToNextLevel = 5;
+             XPToNextLevel = 25;
          }
 
+        ///<summary>
+        ///Add the XP of the player and identify if the level has increased
+        ///</summary>
          public void AddXp(int XP){
              XPEarned += XP;
              if(XPEarned>=XPToNextLevel){
