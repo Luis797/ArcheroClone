@@ -211,10 +211,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1763430836238255926}
   - component: {fileID: 7883098289497369838}
-  - component: {fileID: 2793066384815932529}
   - component: {fileID: 2932767422489354343}
+  - component: {fileID: -1421450261430270913}
   m_Layer: 2
-  m_Name: Enemy
+  m_Name: StationaryEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -250,23 +250,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.2319336, z: 0.3}
   m_Center: {x: 0, y: 0.8217821, z: 0}
---- !u!114 &2793066384815932529
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4956150959598709338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5add828abb52fd346b0dcfdf277ad544, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hp: 0
-  mhp: 10
-  healthBar: {fileID: 2115932601578905848}
-  controller: {fileID: 5655800349058009797}
-  coins: {fileID: 1498403948531744, guid: fa2c57d3f28a5e6419393e8bc3eeb32a, type: 3}
 --- !u!114 &2932767422489354343
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,8 +265,25 @@ MonoBehaviour:
   rb: {fileID: 0}
   AfterEffectOnHit: {fileID: 655842147547984728, guid: 77b6139f3b5de2c468af2262a7585d85, type: 3}
   damage: 12
-  enemyTag: 0
+  enemyTag: 1
   objectTag: 0
+--- !u!114 &-1421450261430270913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4956150959598709338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e2a30162d1b17b4c8b591e2a5260198, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mhp: 10
+  healthBar: {fileID: 2115932601578905848}
+  controller: {fileID: 5655800349058009797}
+  coins: {fileID: 1498403948531744, guid: fa2c57d3f28a5e6419393e8bc3eeb32a, type: 3}
+  arrow: {fileID: 3931957379319879057, guid: 49f5f9d35e12b5c41ab683ab2e91c053, type: 3}
 --- !u!1 &5413852365187274623
 GameObject:
   m_ObjectHideFlags: 0

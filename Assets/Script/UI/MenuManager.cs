@@ -7,8 +7,8 @@ namespace TestTask.UI
 {
     public class MenuManager : MonoBehaviour
     {
-        public void LoadLevel(){
-            SceneManager.LoadScene(1);
+        public void LoadLevel(int scene){
+            SceneManager.LoadScene(scene);
         }
 
         public void Quit(){

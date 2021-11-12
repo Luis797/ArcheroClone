@@ -8,10 +8,13 @@ namespace TestTask.Core
     {
         [SerializeField] DoorController doorController;
 
+        [Header("Swipe effect panel.")]
+        [SerializeField] GameObject swipeEffect;
         private void OnTriggerEnter(Collider other) {
             if(other.CompareTag("Player") && doorController.IsDoorOpen ){
                 doorController.CloseDoor();
-              GameHandler.instance.ResetGame();          
+              GameHandler.instance.NextLevelGame();  
+              swipeEffect.SetActive(true);        
             }
         }
     }

@@ -363,10 +363,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3720b453855c53a4eb91d2a02beaa1f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 0
+  mhp: 0
+  healthBar: {fileID: 4036178181458776911}
+  controller: {fileID: 4829392120779183680}
   timeBetweenAttacks: 1
   weapon: {fileID: 3931957379319879057, guid: b9fc55a2775becf4585e5c03193f7722, type: 3}
   tags: 0
-  pointOfLaunch: {fileID: 0}
+  pointOfLaunch: {fileID: 6600320867431091230}
+  rewardSystem: {fileID: 0}
 --- !u!135 &4036178181783678100
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -392,12 +397,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80179e39e6178ab4da9db04b9597bf07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 0
-  mhp: 100
-  healthBar: {fileID: 4036178181458776911}
-  controller: {fileID: 4829392120779183680}
   sphereCol: {fileID: 4036178181783678100}
-  animationMesh: {fileID: 0}
+  animationMesh: {fileID: 4780833976100620874}
   notPlayer:
     serializedVersion: 2
     m_Bits: 51

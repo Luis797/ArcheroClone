@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TestTask.Helper;
+using System;
+
 namespace TestTask.Core
 {
     public class GameHandler : MonoBehaviour
@@ -24,6 +26,17 @@ namespace TestTask.Core
 
         private int GameLevel;
         [SerializeField] EnemySpawner enemySpawner;
+
+        //Assign reward system to activate when level increases.
+        [SerializeField] GameObject rewardSystem;
+
+        [Header("Canvas gameobject that is activate on pause")]
+        [SerializeField] GameObject pauseMenu;
+
+        [Header("TextMesh within environment")]
+        [SerializeField] TextMesh levelTextMesh;
+
+        private bool isPause = false;
         public enum Tags
         {
             Enemy, Player
@@ -35,8 +48,32 @@ namespace TestTask.Core
                 Destroy(this.gameObject);
             instance = this;
             playerInitialPosition = player.position;
+            //Suscribe to the event
+            levelSystem.OnLevelUpdate += LevelSystem_OnLevelUpdate;
         }
 
+        private void LevelSystem_OnLevelUpdate()
+        {
+           Invoke(nameof(RewardUnlock),0.5f);
+        }
+
+        private void RewardUnlock()
+        {
+            rewardSystem.SetActive(true);
+        }
+
+        private void Update() {
+            if(Input.GetKeyDown(KeyCode.Escape)){
+                isPause =!isPause;
+                PauseGame();
+            }
+        }
+
+        private void PauseGame()
+        {
+           pauseMenu.SetActive(isPause);
+           Time.timeScale = isPause?0:1;
+        }
 
         ///<summary>
         ///Helps determine if any enemy exits
@@ -79,9 +116,11 @@ namespace TestTask.Core
             return closetObject;
         }
 
-        public void ResetGame(){
+        public void NextLevelGame(){
             enemySpawner.SpawnEnemy(GameLevel);
             player.position = playerInitialPosition;
+            GameLevel ++;
+            levelTextMesh.text = GameLevel.ToString();
         }
 
         ///<summary>
@@ -91,7 +130,6 @@ namespace TestTask.Core
            levelSystem.AddXp(coinCollected);
            xpSlider.value = levelSystem.GetXPNormaized();
            levelText.text = "Level "+ levelSystem.Level();
-           GameLevel ++;
         }
     }
 

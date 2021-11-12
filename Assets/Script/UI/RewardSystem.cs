@@ -9,10 +9,12 @@ using System;
 public class RewardSystem : MonoBehaviour
 {
     //Holds the name of the reward the user can choose
-    List<string> rewardsTitle = new List<string>();
+    public List<string> rewardsTitle = new List<string>();
 
     //All three rewards text in the UI
     [SerializeField] Text[] rewards;
+
+    List<string> rewardChoice = new List<string>();
 
     [Header("Amount of time between each change in name ")]
     [SerializeField] float time;
@@ -31,7 +33,10 @@ public class RewardSystem : MonoBehaviour
 
     public void UnlockSkill()
     {
-
+        if(!selectReward)return;
+        //todo : Identify the method to trasfer the reward enum.
+        playerSkill.UnlockSkill(PlayerSkill.SkillType.Heal);
+     gameObject.SetActive(false);
     }
 
     public void SetPlayerSkill(PlayerSkill playerSkill)
@@ -45,8 +50,13 @@ public class RewardSystem : MonoBehaviour
 
     void ShowRewards()
     {
-        for (int i = 0; i < rewardsTitle.Count; i++)
-            rewards[i].text = rewardsTitle[UnityEngine.Random.Range(0, rewardsTitle.Count)];
+         List<string> reward = rewardsTitle.ToList();
+        for (int i = 0; i < rewards.Length; i++){
+            String currentReward =  reward[UnityEngine.Random.Range(0, reward.Count)];
+            rewards[i].text = currentReward;
+            //Remove the item so that the next choice doesnot consist same reward
+            reward.Remove(currentReward);
+        }
     }
     // Update is called once per frame
     void Update()

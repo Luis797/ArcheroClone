@@ -9,9 +9,12 @@ namespace TestTask.Core{
 
         List<GameObject> coinCollection = new List<GameObject>();
         Transform player;
+
+        [Header("Attach the door controller script of the game")]
         [SerializeField] DoorController doorController;
 
         private void Start() {
+            //Register the event to the coin Drop
             CoinDrop.OnCoinDrop+=OnCoinDrop;
             player = GameObject.FindGameObjectWithTag("Player").transform;
         }
@@ -35,7 +38,6 @@ namespace TestTask.Core{
         ///</summary>
         private void CollectCoins(){
             GameHandler.instance.IncreaseXP(coinCollection.Count);
-
              foreach(GameObject coin in coinCollection){
                 coin.transform.DOMove(player.position,0.2f);
                 Destroy(coin,0.55f);

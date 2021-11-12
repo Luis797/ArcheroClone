@@ -8,19 +8,21 @@ namespace TestTask.Helper
     public class PlayerSkill
     {
         public enum SkillType{
-            heal,
-            headShot,
-            tripleShot,
+            Heal,
+            HeadShot,
+            TripleShot,
+
+            AreaAttack,
 
         }
-        public  event EventHandler<OnSkillUnlock> OnSkillUnLocked;
+        public  event Action<OnSkillUnlock> OnSkillUnLocked;
 
-        public class OnSkillUnlock : EventArgs{
+        public class OnSkillUnlock {
             public SkillType skillType;
         }
 
         public void UnlockSkill(SkillType skillType){
-            OnSkillUnLocked?.Invoke(this, new OnSkillUnlock{skillType = skillType});
+            OnSkillUnLocked( new OnSkillUnlock{skillType = skillType});
         }
     }
 }

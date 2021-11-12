@@ -71,7 +71,6 @@ namespace BrokenVector.LowPolyFencePack
             closeAnimation.legacy = true;
             animator.AddClip(openAnimation, DoorState.Open.ToString());
             animator.AddClip(closeAnimation, DoorState.Closed.ToString());
-            GetComponent<BoxCollider>().enabled = false;
         }
 
         void Start()
@@ -90,6 +89,7 @@ namespace BrokenVector.LowPolyFencePack
         {
             if (IsDoorClosed)
                 return;
+            GetComponent<BoxCollider>().enabled = true;
 
             CurrentState = DoorState.Closed;
         }
@@ -101,7 +101,7 @@ namespace BrokenVector.LowPolyFencePack
         {
             if (IsDoorOpen)
                 return;
-
+            GetComponent<BoxCollider>().enabled = false;
             CurrentState = DoorState.Open;
         }
 

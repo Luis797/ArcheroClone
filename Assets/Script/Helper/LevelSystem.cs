@@ -1,3 +1,5 @@
+using System;
+
 namespace TestTask.Helper{
     public class LevelSystem {
         private int level;
@@ -5,10 +7,12 @@ namespace TestTask.Helper{
 
          private int XPToNextLevel;
 
+         public event Action OnLevelUpdate;
+
          public LevelSystem(){
              level = 1;
              XPEarned  =0;
-             XPToNextLevel = 25;
+             XPToNextLevel = 5;
          }
 
         ///<summary>
@@ -18,6 +22,7 @@ namespace TestTask.Helper{
              XPEarned += XP;
              if(XPEarned>=XPToNextLevel){
                  level ++;
+                 if(OnLevelUpdate != null ) OnLevelUpdate();
                  XPEarned -= XPToNextLevel;
              }
          }

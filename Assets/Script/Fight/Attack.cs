@@ -14,9 +14,6 @@ namespace TestTask.Fight
         //Todo:Place this somewhere for more convinent with instantiating and upgrading the weapons.
         [SerializeField] GameObject weapon;
 
-        [SerializeField] GameHandler.Tags tags;
-
-
         [Header("Point of launch of weapon")]
         [SerializeField] Transform pointOfLaunch;
         PlayerBehaviour playerBehaviour;
@@ -33,13 +30,14 @@ namespace TestTask.Fight
             playerSkill.OnSkillUnLocked += PlayerSkill_OnSkillUnLocked;
         }
 
-        // Todo : According to the object choose by player change the player states like weapon health
-        private void PlayerSkill_OnSkillUnLocked(object sender, PlayerSkill.OnSkillUnlock e)
+        // Todo : According to the object choose by player change the player states like weapon, health.
+        private void PlayerSkill_OnSkillUnLocked(PlayerSkill.OnSkillUnlock e)
         {
             switch(e.skillType){
-                case PlayerSkill.SkillType.headShot:
+                case PlayerSkill.SkillType.HeadShot:
                 break;
-                case PlayerSkill.SkillType.heal:
+                case PlayerSkill.SkillType.Heal:
+                IncreaseHealth(mhp);
                 break;        
             }
         }
