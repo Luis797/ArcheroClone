@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TestTask.Helper;
 using System;
+using TestTask.Attribute;
 
 namespace TestTask.Core
 {
@@ -20,6 +21,9 @@ namespace TestTask.Core
         [Header("Slider that defines XP")]
         [SerializeField] Slider xpSlider;
 
+        [SerializeField] PlayerInformation playerInformation;
+
+
         private LevelSystem levelSystem = new LevelSystem();
 
         private List<Transform> enemies = new List<Transform>();
@@ -35,6 +39,7 @@ namespace TestTask.Core
 
         [Header("TextMesh within environment")]
         [SerializeField] TextMesh levelTextMesh;
+        
 
         private bool isPause = false;
         public enum Tags
@@ -128,6 +133,7 @@ namespace TestTask.Core
         ///</summary>
         public void IncreaseXP(int coinCollected){
            levelSystem.AddXp(coinCollected);
+            playerInformation.CoinCollected+= coinCollected;
            xpSlider.value = levelSystem.GetXPNormaized();
            levelText.text = "Level "+ levelSystem.Level();
         }

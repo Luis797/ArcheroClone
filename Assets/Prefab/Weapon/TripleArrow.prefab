@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 5298496543143372021}
   - component: {fileID: 2368575913393538638}
   - component: {fileID: 3501450447119414672}
+  - component: {fileID: -8169613626717848275}
   m_Layer: 0
-  m_Name: EnemyArrow
+  m_Name: TripleArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,8 +48,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2368575913393538638}
-  weponInfromation: {fileID: 11400000, guid: 6f90ed01682c7b84c857e725d1ac4d2f, type: 2}
-  enemyTag: 1
+  weponInfromation: {fileID: 11400000, guid: a21e0c97f12cbed4d92da545fe6cc584, type: 2}
+  enemyTag: 0
   force: 25
   time: 0.5
 --- !u!54 &2368575913393538638
@@ -80,6 +81,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.0390563, y: 0.08440781, z: 0.6697426}
   m_Center: {x: -0.0026151463, y: 0.010432243, z: 0.60969734}
+--- !u!114 &-8169613626717848275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3931957379319879057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98e856452e05147428957442796913bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  arrow: {fileID: 3931957379319879057, guid: b9fc55a2775becf4585e5c03193f7722, type: 3}
 --- !u!1001 &246387415449909018
 PrefabInstance:
   m_ObjectHideFlags: 0
