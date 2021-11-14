@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a8fccaaab915ce49b976a8323b3a8f2, type: 3}
   m_Name: Blue
   m_EditorClassIdentifier: 
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 0, g: 0, b: 0.8392157, a: 1}
   coinRequired: 50
-  bought: 0

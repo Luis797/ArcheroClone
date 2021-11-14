@@ -39,6 +39,8 @@ namespace TestTask.Core
 
         [Header("TextMesh within environment")]
         [SerializeField] TextMesh levelTextMesh;
+
+        bool gameOver = false;
         
 
         private bool isPause = false;
@@ -68,13 +70,17 @@ namespace TestTask.Core
         }
 
         private void Update() {
+            if(gameOver) return;
             if(Input.GetKeyDown(KeyCode.Escape)){
                 isPause =!isPause;
-                PauseGame();
+                PauseGame(isPause);
             }
         }
 
-        private void PauseGame()
+        private void OnDestroy() {
+            Time.timeScale = 1f;
+        }
+        private void PauseGame(bool isPause)
         {
            pauseMenu.SetActive(isPause);
            Time.timeScale = isPause?0:1;
@@ -133,9 +139,15 @@ namespace TestTask.Core
         ///</summary>
         public void IncreaseXP(int coinCollected){
            levelSystem.AddXp(coinCollected);
-            playerInformation.CoinCollected+= coinCollected;
+           playerInformation.SaveJsonData(playerInformation.Coins()+coinCollected);
            xpSlider.value = levelSystem.GetXPNormaized();
            levelText.text = "Level "+ levelSystem.Level();
+        }
+
+
+        public void GameOver(){
+            gameOver = true;
+            PauseGame(true);
         }
     }
 

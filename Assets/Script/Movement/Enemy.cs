@@ -28,9 +28,10 @@ namespace TestTask.Movement
             stationaryTime = Random.Range(1, 10f);
 
         }
+        
         protected override void IsDeath(float hp)
         {
-            //Todo: Determine how to remove the DOTween effects
+           
             transform.DOKill(false);
             if (hp <= 0)
             {

@@ -9,13 +9,18 @@ namespace TestTask.Fight
 {
     public class Attack : Attributes, IBehaviour
     {
+        [Header("Defines the time between attack")]
+
         [SerializeField] float timeBetweenAttacks;
 
-        //Todo:Place this somewhere for more convinent with instantiating and upgrading the weapons.
-        [SerializeField] GameObject weapon;
+        [Header("Add player behaviour scriptable object")]
+
+        [SerializeField] PlayerInformation playerInformation;
 
         [Header("Point of launch of weapon")]
         [SerializeField] Transform pointOfLaunch;
+
+
         PlayerBehaviour playerBehaviour;
         float tempTime;
         bool canAttack = false;
@@ -33,6 +38,7 @@ namespace TestTask.Fight
         // Todo : According to the object choose by player change the player states like weapon, health.
         private void PlayerSkill_OnSkillUnLocked(PlayerSkill.OnSkillUnlock e)
         {
+            print(e.skillType);
             switch(e.skillType){
                 case PlayerSkill.SkillType.HeadShot:
                 break;
@@ -57,16 +63,20 @@ namespace TestTask.Fight
             }
         }
 
+        ///<summary>
+        ///Attack the enemy
+        ///</summary>
         private void AttackEnemy()
         {
             LookTowardsEnemy();
             tempTime = timeBetweenAttacks;
-            Instantiate(weapon, pointOfLaunch.position, pointOfLaunch.rotation);
+            Instantiate(playerInformation.weapon, pointOfLaunch.position, pointOfLaunch.rotation);
         }
 
 
         ///<summary>
         ///Make the player looks towards the enemy during attack
+        ///</summary>
         private void LookTowardsEnemy()
         {
             Transform enemy = GameHandler.instance.FindClosetEnemy(transform);
@@ -96,7 +106,7 @@ namespace TestTask.Fight
         {
             if (hp <= 0)
             {
-                print("Death");
+                GameHandler.instance.GameOver();
             }
         }
     }

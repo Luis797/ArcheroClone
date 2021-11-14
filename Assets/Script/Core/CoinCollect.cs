@@ -24,6 +24,10 @@ namespace TestTask.Core{
                 CollectAchievement();
        }
 
+        private void OnDestroy() {
+             //Removing the registered event to the coin Drop
+            CoinDrop.OnCoinDrop -= OnCoinDrop;
+        }
 
         ///<summary>
         ///Call once the game is completed.

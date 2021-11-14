@@ -1,11 +1,10 @@
-    using UnityEngine;
+using TestTask.Saving;
+using UnityEngine;
 
 namespace TestTask.Attribute{    
     [CreateAssetMenu(fileName = "SkinInfromation", menuName = "TestTask/SkinInfromation", order = 0)]
-    public class SkinInformation : ScriptableObject {
+    public class SkinInformation : ItemInformation {
         [Header("Color of the material")]
-        public Color color;
-        [Header("Coin required to buy the weapon")]
-        public int coinRequired = 50;
+        public Color color;       
     }
 }

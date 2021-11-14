@@ -345,11 +345,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1369058598}
         m_TargetAssemblyTypeName: RewardSystem, Assembly-CSharp
         m_MethodName: UnlockSkill
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -933,11 +933,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1369058598}
         m_TargetAssemblyTypeName: RewardSystem, Assembly-CSharp
         m_MethodName: UnlockSkill
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1161,7 +1161,7 @@ MonoBehaviour:
   player: {fileID: 236417490}
   levelText: {fileID: 1833605530}
   xpSlider: {fileID: 441223841}
-  playerInformation: {fileID: 0}
+  playerInformation: {fileID: 11400000, guid: 669ed9feebf5e8c42a927c1ef4b398d3, type: 2}
   enemySpawner: {fileID: 869813374}
   rewardSystem: {fileID: 1369058596}
   pauseMenu: {fileID: 117176845}
@@ -1211,7 +1211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyCount: 3
   enemies:
-  - {fileID: 4956150959598709338, guid: 1be3ef5c45f46544384728233794377f, type: 3}
+  - {fileID: 4956150959598709338, guid: f73f0568dd5682e429abac4ad9c65e24, type: 3}
   - {fileID: 4956150959598709338, guid: f73f0568dd5682e429abac4ad9c65e24, type: 3}
   lowestPoint: {fileID: 659216979}
   highestPoint: {fileID: 1561577733}
@@ -1753,7 +1753,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1369058598}
         m_TargetAssemblyTypeName: RewardSystem, Assembly-CSharp
         m_MethodName: UnlockSkill
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2670,7 +2670,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4036178181783678097, guid: 9188856b393871342acf0f1e4ef338d1, type: 3}
       propertyPath: mhp
-      value: 100
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 4036178181783678097, guid: 9188856b393871342acf0f1e4ef338d1, type: 3}
       propertyPath: weapon
@@ -2684,6 +2684,10 @@ PrefabInstance:
       propertyPath: pointOfLaunch
       value: 
       objectReference: {fileID: 910703958}
+    - target: {fileID: 4036178181783678097, guid: 9188856b393871342acf0f1e4ef338d1, type: 3}
+      propertyPath: playerInformation
+      value: 
+      objectReference: {fileID: 11400000, guid: 669ed9feebf5e8c42a927c1ef4b398d3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9188856b393871342acf0f1e4ef338d1, type: 3}
 --- !u!222 &4349786208907827152

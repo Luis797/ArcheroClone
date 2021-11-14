@@ -23,20 +23,22 @@ public class RewardSystem : MonoBehaviour
     //When true will only allow user to choose the reward
     bool selectReward = false;
     PlayerSkill playerSkill;
-    
+    List<PlayerSkill.SkillType> skill = new List<PlayerSkill.SkillType>();
+    PlayerSkill.SkillType[] selectedSkill = new PlayerSkill.SkillType[3];
     private void Start()
     {
         Invoke(nameof(DeactivateScroll), 3f);
         //Converting the skilltype enum to list.
         rewardsTitle = Enum.GetNames(typeof(PlayerSkill.SkillType)).ToList();
+        skill = Enum.GetValues(typeof(PlayerSkill.SkillType)).Cast<PlayerSkill.SkillType>().ToList();
     }
 
-    public void UnlockSkill()
+    public void UnlockSkill(int i)
     {
         if(!selectReward)return;
         //todo : Identify the method to trasfer the reward enum.
-        playerSkill.UnlockSkill(PlayerSkill.SkillType.Heal);
-     gameObject.SetActive(false);
+        playerSkill.UnlockSkill(selectedSkill[i]);
+        gameObject.SetActive(false);
     }
 
     public void SetPlayerSkill(PlayerSkill playerSkill)
@@ -51,11 +53,15 @@ public class RewardSystem : MonoBehaviour
     void ShowRewards()
     {
          List<string> reward = rewardsTitle.ToList();
+         List<PlayerSkill.SkillType> skills = skill.ToList();
         for (int i = 0; i < rewards.Length; i++){
-            String currentReward =  reward[UnityEngine.Random.Range(0, reward.Count)];
+            int randomIntWithinRange = UnityEngine.Random.Range(0, reward.Count);
+            String currentReward =  reward[randomIntWithinRange];
             rewards[i].text = currentReward;
+            selectedSkill[i] = skills[randomIntWithinRange];
             //Remove the item so that the next choice doesnot consist same reward
             reward.Remove(currentReward);
+            skills.Remove(skills[randomIntWithinRange]);
         }
     }
     // Update is called once per frame

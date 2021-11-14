@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd54fe6a68e7dbd43ad3f365cdc446c0, type: 3}
   m_Name: PlayerInformation
   m_EditorClassIdentifier: 
-  weapon: {fileID: 1959729250425484, guid: 5187dfa4d8f19524e8bbf7c6894b7de7, type: 3}
-  CoinCollected: 0
+  weapon: {fileID: 5233559395007848303, guid: 5065ba6efa1e44f47ad9773b6b6fa217, type: 3}
+  CoinCollected: 108
