@@ -484,6 +484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 155383fdee3e80f49a18320fcdad1bf8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInformation: {fileID: 11400000, guid: 669ed9feebf5e8c42a927c1ef4b398d3, type: 2}
   Weapons:
   - weponInfromations: {fileID: 11400000, guid: cb8e20ea075692048a5f328fcaa9d2b5, type: 2}
     showCaseWeapon: {fileID: 1551482667854797441, guid: ca3e0d082d12f9442b9b087a867affaf, type: 3}
@@ -534,6 +535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 843b38d7378298e44aad0f8363ca7d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerInformation: {fileID: 0}
   skinMaterial: {fileID: 2100000, guid: 06eb4e637b7ef614e9265f48c542664b, type: 2}
   ShopSkinMaterial: {fileID: 2100000, guid: 0b8b7b913228d994b8cd7277add6ec0d, type: 2}
   skins:

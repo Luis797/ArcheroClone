@@ -25,18 +25,21 @@ public class RewardSystem : MonoBehaviour
     PlayerSkill playerSkill;
     List<PlayerSkill.SkillType> skill = new List<PlayerSkill.SkillType>();
     PlayerSkill.SkillType[] selectedSkill = new PlayerSkill.SkillType[3];
+
+    GameObject[] weapons = new GameObject[3];
     private void Start()
     {
         Invoke(nameof(DeactivateScroll), 3f);
-        //Converting the skilltype enum to list.
+        //Converting the skilltype enum's name to list.
         rewardsTitle = Enum.GetNames(typeof(PlayerSkill.SkillType)).ToList();
+        //Converting the skilltype enum to list.
         skill = Enum.GetValues(typeof(PlayerSkill.SkillType)).Cast<PlayerSkill.SkillType>().ToList();
     }
 
     public void UnlockSkill(int i)
     {
         if(!selectReward)return;
-        //todo : Identify the method to trasfer the reward enum.
+        //Method to trasfer the reward enum.
         playerSkill.UnlockSkill(selectedSkill[i]);
         gameObject.SetActive(false);
     }
@@ -50,6 +53,9 @@ public class RewardSystem : MonoBehaviour
         selectReward = true;
     }
 
+    ///<summary>
+    ///Define different skills for each entity(canvas) and store the value to be derived later
+    ///</summary>
     void ShowRewards()
     {
          List<string> reward = rewardsTitle.ToList();
@@ -61,6 +67,7 @@ public class RewardSystem : MonoBehaviour
             selectedSkill[i] = skills[randomIntWithinRange];
             //Remove the item so that the next choice doesnot consist same reward
             reward.Remove(currentReward);
+            //Remove the skill to match corresponding reward item
             skills.Remove(skills[randomIntWithinRange]);
         }
     }

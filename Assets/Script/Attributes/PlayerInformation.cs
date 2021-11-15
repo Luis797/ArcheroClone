@@ -8,5 +8,8 @@ namespace TestTask.Attribute
     {
         [Header("Add the weapon of the player")]
         public GameObject weapon;
+
+        [Header("Speed at which player moves.")]
+        public float speed;
     }
 }

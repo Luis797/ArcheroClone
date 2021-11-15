@@ -262,7 +262,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5add828abb52fd346b0dcfdf277ad544, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 0
   mhp: 10
   healthBar: {fileID: 2115932601578905848}
   controller: {fileID: 5655800349058009797}
@@ -280,10 +279,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  AfterEffectOnHit: {fileID: 655842147547984728, guid: 77b6139f3b5de2c468af2262a7585d85, type: 3}
-  damage: 12
+  weponInfromation: {fileID: 11400000, guid: cb8e20ea075692048a5f328fcaa9d2b5, type: 2}
   enemyTag: 1
-  objectTag: 0
 --- !u!1 &5413852365187274623
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,7 +440,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: efbcc3a0394fda141b4079663146588d, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

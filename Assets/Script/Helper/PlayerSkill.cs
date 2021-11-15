@@ -9,10 +9,10 @@ namespace TestTask.Helper
     {
         public enum SkillType{
             Heal,
-            HeadShot,
             TripleShot,
-
             AreaAttack,
+            IncreaseSpeed,
+
 
         }
         public  event Action<OnSkillUnlock> OnSkillUnLocked;

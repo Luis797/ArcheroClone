@@ -7,8 +7,8 @@ namespace TestTask.Fight
     public abstract class Weapon : MonoBehaviour
     {
         [SerializeField] protected Rigidbody rb;
-        [SerializeField] WeponInfromation weponInfromation;
-       
+        [SerializeField] protected WeponInfromation weponInfromation;
+
         //Todo: May be do with layers
         [Header("Tag of the gameobject that this weapon is aimed at.")]
 
@@ -23,11 +23,8 @@ namespace TestTask.Fight
                 OnCollision(other.GetComponent<Attributes>());
             }
         }
-        private void OnCollision(Attributes attribute)
-        {
-            attribute.TakeDamage(weponInfromation.damage);
-            Instantiate(weponInfromation.AfterEffectOnHit, transform.position, transform.rotation);
-        }
+        public abstract void OnCollision(Attributes attribute);
+       
         public abstract void ResetRigidBody();
     }
 }

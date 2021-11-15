@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd54fe6a68e7dbd43ad3f365cdc446c0, type: 3}
-  m_Name: PlayerInformation
+  m_Script: {fileID: 11500000, guid: ec2b8097c6646f54989dd6e89ee045b5, type: 3}
+  m_Name: AreaWeapon
   m_EditorClassIdentifier: 
   coinRequired: 50
-  weapon: {fileID: 3931957379319879057, guid: b9fc55a2775becf4585e5c03193f7722, type: 3}
-  speed: 5
+  damage: 5
+  AfterEffectOnHit: {fileID: 655842147547984728, guid: 77b6139f3b5de2c468af2262a7585d85, type: 3}

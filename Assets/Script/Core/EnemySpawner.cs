@@ -23,7 +23,7 @@ namespace TestTask.Core
             ///Todo : The level information should be used to instantiate the enemy
             if (enemies.Count < 1) return;
 
-            for (int i = 0; i < enemyCount; i++)
+            for (int i = 0; i < enemyCount + level; i++)
             {
                 GameObject enemy = enemies[UnityEngine.Random.Range(0, enemies.Count)];
                 GameHandler.instance.AddEnemy(Instantiate(enemy, InstantiatePosition(), enemy.transform.rotation).transform);

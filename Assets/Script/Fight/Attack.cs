@@ -20,31 +20,47 @@ namespace TestTask.Fight
         [Header("Point of launch of weapon")]
         [SerializeField] Transform pointOfLaunch;
 
+        [Header("Add reward system from within the scene to assign playerskill class")]
+        [SerializeField] RewardSystem rewardSystem;
 
+        [Header("Add area weapon here")]
+        [SerializeField] GameObject areaWeapon;
+        [Header("Add triple shot weapon here")]
+        [SerializeField] GameObject tripleShotWeapon;
+
+        PlayerSkill playerSkill;
         PlayerBehaviour playerBehaviour;
         float tempTime;
         bool canAttack = false;
-         [SerializeField] RewardSystem rewardSystem;
+        GameObject weapon;
 
-        PlayerSkill playerSkill;
-
-        public new  void Awake() { 
+        public new void Awake()
+        {
             base.Awake();
             playerSkill = new PlayerSkill();
             rewardSystem.SetPlayerSkill(playerSkill);
             playerSkill.OnSkillUnLocked += PlayerSkill_OnSkillUnLocked;
+            weapon = playerInformation.weapon;
         }
 
         // Todo : According to the object choose by player change the player states like weapon, health.
         private void PlayerSkill_OnSkillUnLocked(PlayerSkill.OnSkillUnlock e)
         {
             print(e.skillType);
-            switch(e.skillType){
-                case PlayerSkill.SkillType.HeadShot:
-                break;
+            switch (e.skillType)
+            {
+                case PlayerSkill.SkillType.AreaAttack:
+                    weapon = areaWeapon;
+                    break;
+                case PlayerSkill.SkillType.TripleShot:
+                    weapon = tripleShotWeapon;
+                    break;
                 case PlayerSkill.SkillType.Heal:
-                IncreaseHealth(mhp);
-                break;        
+                    IncreaseHealth(mhp);
+                    break;
+                case PlayerSkill.SkillType.IncreaseSpeed:
+                    playerInformation.speed += 1.5f;
+                    break;
             }
         }
 
@@ -70,7 +86,7 @@ namespace TestTask.Fight
         {
             LookTowardsEnemy();
             tempTime = timeBetweenAttacks;
-            Instantiate(playerInformation.weapon, pointOfLaunch.position, pointOfLaunch.rotation);
+            Instantiate(weapon, pointOfLaunch.position, pointOfLaunch.rotation);
         }
 
 
@@ -102,7 +118,7 @@ namespace TestTask.Fight
         {
             canAttack = false;
         }
-         protected override void IsDeath(float hp)
+        protected override void IsDeath(float hp)
         {
             if (hp <= 0)
             {

@@ -1,3 +1,4 @@
+using TestTask.Attribute;
 using UnityEngine;
 
 namespace TestTask.Fight
@@ -27,5 +28,10 @@ namespace TestTask.Fight
                 rb.angularVelocity = Vector3.zero;
         }
 
+        public override void OnCollision(Attributes attribute)
+        {
+              attribute.TakeDamage(weponInfromation.damage);
+            Instantiate(weponInfromation.AfterEffectOnHit, transform.position, transform.rotation);
+        }
     }
 }
