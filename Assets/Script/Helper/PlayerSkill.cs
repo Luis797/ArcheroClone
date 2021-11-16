@@ -12,6 +12,7 @@ namespace TestTask.Helper
             TripleShot,
             AreaAttack,
             IncreaseSpeed,
+            AttackRate,
 
 
         }

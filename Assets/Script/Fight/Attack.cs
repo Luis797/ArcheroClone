@@ -61,6 +61,9 @@ namespace TestTask.Fight
                 case PlayerSkill.SkillType.IncreaseSpeed:
                     playerInformation.speed += 1.5f;
                     break;
+                     case PlayerSkill.SkillType.AttackRate:
+                    timeBetweenAttacks = 0.75f;
+                    break;
             }
         }
 
