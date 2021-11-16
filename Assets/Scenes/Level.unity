@@ -1062,7 +1062,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 748932074}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 117176849}
+        m_TargetAssemblyTypeName: TestTask.UI.MenuManager, Assembly-CSharp
+        m_MethodName: LoadLevel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &748932074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1138,6 +1150,7 @@ MonoBehaviour:
   rewardSystem: {fileID: 1369058596}
   pauseMenu: {fileID: 117176845}
   levelTextMesh: {fileID: 6221405613494135052}
+  isPause: 0
 --- !u!4 &838389831
 Transform:
   m_ObjectHideFlags: 0
@@ -1884,7 +1897,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1703232033}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 117176849}
+        m_TargetAssemblyTypeName: TestTask.UI.MenuManager, Assembly-CSharp
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1703232033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2807,7 +2832,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4349786209628505821}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 117176849}
+        m_TargetAssemblyTypeName: TestTask.UI.MenuManager, Assembly-CSharp
+        m_MethodName: LoadLevel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &4349786209628505820
 CanvasRenderer:
   m_ObjectHideFlags: 0

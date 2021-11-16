@@ -692,7 +692,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1315714676}
         m_TargetAssemblyTypeName: TestTask.UI.MenuManager, Assembly-CSharp
-        m_MethodName: LoadLevel
+        m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
