@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 using System;
+using TestTask.Core;
 
 public class RewardSystem : MonoBehaviour
 {
@@ -27,21 +28,27 @@ public class RewardSystem : MonoBehaviour
     PlayerSkill.SkillType[] selectedSkill = new PlayerSkill.SkillType[3];
 
     GameObject[] weapons = new GameObject[3];
-    private void Start()
-    {
-        Invoke(nameof(DeactivateScroll), 3f);
+    private  void Start() {
+        
         //Converting the skilltype enum's name to list.
         rewardsTitle = Enum.GetNames(typeof(PlayerSkill.SkillType)).ToList();
         //Converting the skilltype enum to list.
         skill = Enum.GetValues(typeof(PlayerSkill.SkillType)).Cast<PlayerSkill.SkillType>().ToList();
     }
 
+    private void OnEnable() {
+        Invoke(nameof(DeactivateScroll), 3f);
+        //To make player stop there action
+        GameHandler.instance.isPause = true;
+    }
     public void UnlockSkill(int i)
     {
         if(!selectReward)return;
         //Method to trasfer the reward enum.
         playerSkill.UnlockSkill(selectedSkill[i]);
         gameObject.SetActive(false);
+        //To allow player to resume action
+        GameHandler.instance.isPause = false;
     }
 
     public void SetPlayerSkill(PlayerSkill playerSkill)

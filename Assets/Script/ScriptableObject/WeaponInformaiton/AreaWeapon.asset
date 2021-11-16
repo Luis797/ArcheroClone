@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec2b8097c6646f54989dd6e89ee045b5, type: 3}
   m_Name: AreaWeapon
   m_EditorClassIdentifier: 
-  coinRequired: 50
-  damage: 5
+  coinRequired: 100
+  damage: 4
   AfterEffectOnHit: {fileID: 655842147547984728, guid: 77b6139f3b5de2c468af2262a7585d85, type: 3}

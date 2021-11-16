@@ -43,7 +43,7 @@ namespace TestTask.Core
         bool gameOver = false;
         
 
-        private bool isPause = false;
+        public bool isPause = false;
         public enum Tags
         {
             Enemy, Player

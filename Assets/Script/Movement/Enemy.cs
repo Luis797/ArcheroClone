@@ -54,6 +54,7 @@ namespace TestTask.Movement
 
         private void Update()
         {
+            if(GameHandler.instance.isPause) return;
             transform.LookAt(player.position);
             if (stationaryTime < 0)
             {

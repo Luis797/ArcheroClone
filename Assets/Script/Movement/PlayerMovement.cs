@@ -11,6 +11,7 @@ namespace TestTask.Movement
         bool setAttack = false;
         private void Update()
         {
+            if(GameHandler.instance.isPause) return;
             if (Input.anyKey)
                 Move();
             else if (!setAttack)
