@@ -39,5 +39,7 @@ namespace TestTask.Attribute
             hp=mhp;
             healthBar.UpdateHealthBar(hp,mhp);
         }
+
+      
     }
 }

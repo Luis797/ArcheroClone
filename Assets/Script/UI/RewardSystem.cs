@@ -40,6 +40,7 @@ public class RewardSystem : MonoBehaviour
         Invoke(nameof(DeactivateScroll), 3f);
         //To make player stop there action
         GameHandler.instance.isPause = true;
+        selectReward = false;
     }
     public void UnlockSkill(int i)
     {
@@ -47,7 +48,7 @@ public class RewardSystem : MonoBehaviour
         //Method to trasfer the reward enum.
         playerSkill.UnlockSkill(selectedSkill[i]);
         gameObject.SetActive(false);
-        //To allow player to resume action
+        //To allow player to resume
         GameHandler.instance.isPause = false;
     }
 

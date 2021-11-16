@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TestTask.Helper;
-using System;
+
 using TestTask.Attribute;
 
 namespace TestTask.Core

@@ -2654,9 +2654,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3931957379319879057, guid: 2822a4e5b5b9d3c46ad92938eeda14bc, type: 3}
     - target: {fileID: 4036178181783678097, guid: 9188856b393871342acf0f1e4ef338d1, type: 3}
+      propertyPath: handleAttack
+      value: 
+      objectReference: {fileID: 11400000, guid: f102c1b880a45434393524986007f51d, type: 2}
+    - target: {fileID: 4036178181783678097, guid: 9188856b393871342acf0f1e4ef338d1, type: 3}
       propertyPath: rewardSystem
       value: 
       objectReference: {fileID: 1369058598}
+    - target: {fileID: 4036178181783678097, guid: 9188856b393871342acf0f1e4ef338d1, type: 3}
+      propertyPath: handleHealing
+      value: 
+      objectReference: {fileID: 11400000, guid: 09004f6a7bdad7c41a3bbdbe816fb300, type: 2}
     - target: {fileID: 4036178181783678097, guid: 9188856b393871342acf0f1e4ef338d1, type: 3}
       propertyPath: pointOfLaunch
       value: 
@@ -2669,6 +2677,10 @@ PrefabInstance:
       propertyPath: playerInformation
       value: 
       objectReference: {fileID: 11400000, guid: 669ed9feebf5e8c42a927c1ef4b398d3, type: 2}
+    - target: {fileID: 4036178181783678097, guid: 9188856b393871342acf0f1e4ef338d1, type: 3}
+      propertyPath: handlePhysicalProperty
+      value: 
+      objectReference: {fileID: 11400000, guid: 90e5e97e2acfd9a40b759e436a5ac752, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9188856b393871342acf0f1e4ef338d1, type: 3}
 --- !u!222 &4349786208907827152

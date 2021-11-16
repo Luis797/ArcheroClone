@@ -23,47 +23,48 @@ namespace TestTask.Fight
         [Header("Add reward system from within the scene to assign playerskill class")]
         [SerializeField] RewardSystem rewardSystem;
 
-        [Header("Add area weapon here")]
-        [SerializeField] GameObject areaWeapon;
-        [Header("Add triple shot weapon here")]
-        [SerializeField] GameObject tripleShotWeapon;
+        [Header("Add Handle health scriptable object")]
+        [SerializeField] HandleAttack handleAttack;
 
+        [Header("Add Handle behaviour scriptable object")]
+        [SerializeField] HandleHealing handleHealing;
+
+        [Header("Add Handle physical property scriptable object")]
+        [SerializeField] HandlePhysicalProperty handlePhysicalProperty;
         PlayerSkill playerSkill;
         PlayerBehaviour playerBehaviour;
         float tempTime;
         bool canAttack = false;
         GameObject weapon;
-
+        Attack attack;
         public new void Awake()
         {
             base.Awake();
+            attack = GetComponent<Attack>();
             playerSkill = new PlayerSkill();
             rewardSystem.SetPlayerSkill(playerSkill);
             playerSkill.OnSkillUnLocked += PlayerSkill_OnSkillUnLocked;
             weapon = playerInformation.weapon;
         }
 
+
         // Todo : According to the object choose by player change the player states like weapon, health.
         private void PlayerSkill_OnSkillUnLocked(PlayerSkill.OnSkillUnlock e)
         {
             print(e.skillType);
-            switch (e.skillType)
+            if (playerSkill.heal.Contains(e.skillType))
             {
-                case PlayerSkill.SkillType.AreaAttack:
-                    weapon = areaWeapon;
-                    break;
-                case PlayerSkill.SkillType.TripleShot:
-                    weapon = tripleShotWeapon;
-                    break;
-                case PlayerSkill.SkillType.Heal:
-                    IncreaseHealth(mhp);
-                    break;
-                case PlayerSkill.SkillType.IncreaseSpeed:
-                    playerInformation.speed += 1.5f;
-                    break;
-                     case PlayerSkill.SkillType.AttackRate:
-                    timeBetweenAttacks = 0.75f;
-                    break;
+                handleHealing.ChangeHealth(GetComponent<Attack>(), e.skillType, playerInformation);
+                return;
+            }
+            if (playerSkill.attack.Contains(e.skillType))
+            {
+                handleAttack.ChangeWeapon(ref weapon, e.skillType);
+                return;
+            }
+            if (playerSkill.physicalStructure.Contains(e.skillType))
+            {
+                handlePhysicalProperty.ChangePhysicalProperty(GetComponent<Attack>(), e.skillType, playerInformation);
             }
         }
 
@@ -71,6 +72,14 @@ namespace TestTask.Fight
         {
             tempTime = timeBetweenAttacks;
             playerBehaviour = GetComponent<PlayerBehaviour>();
+        }
+        public void ChangeTimeBetweenAttack(float amount)
+        {
+            timeBetweenAttacks -= amount;
+            if (timeBetweenAttacks < 0.5f)
+            {
+                timeBetweenAttacks = 0.5f;
+            }
         }
         private void Update()
         {

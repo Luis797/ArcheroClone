@@ -11,6 +11,7 @@ namespace TestTask.Attribute
 
         [Header("Speed at which player moves.")]
         public float speed;
+      
        
     }
 }
