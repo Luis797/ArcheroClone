@@ -24,7 +24,7 @@ namespace TestTask.Movement
         Quaternion targetRotation;
 
         protected Transform enemy;
-        private void Awake()
+        public virtual void Awake()
         {
             behaviour = GetComponent<PlayerBehaviour>();
             attack = GetComponent<Attack>();

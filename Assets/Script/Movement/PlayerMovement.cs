@@ -9,6 +9,15 @@ namespace TestTask.Movement
     {
         [SerializeField] PlayerInformation playerInformation;
         bool setAttack = false;
+        float speed;
+        private new void Awake() {
+            base.Awake();
+           speed = playerInformation.speed; 
+        }
+
+        private void OnDestroy() {
+            playerInformation.speed = speed;
+        }
         private void Update()
         {
             if(GameHandler.instance.isPause) return;

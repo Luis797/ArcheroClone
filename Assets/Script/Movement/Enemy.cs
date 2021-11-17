@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using DG.Tweening;
 using TestTask.Attribute;
 using TestTask.Core;
@@ -54,7 +53,6 @@ namespace TestTask.Movement
 
         private void Update()
         {
-            if(GameHandler.instance.isPause) return;
             transform.LookAt(player.position);
             if (stationaryTime < 0)
             {
